@@ -1,0 +1,27 @@
+# "Mogwai" is a term from Chinese folklore meaning "evil spirit" or "demon."
+# In the movie "Gremlins," Mogwai refers to a cute, furry creature
+# that can transform into a gremlin if certain rules are broken.
+services:
+  gremlin-server:
+    image: mogwai/gremlin-server
+    container_name: mogwai-server
+    build:
+      context: .
+      dockerfile: Dockerfile.gremlin
+    ports:
+      - "8182:8182"
+    networks:
+      - gremlin-network
+  graph-ui:
+    image: mogwai/gremlin-explorer
+    container_name: gizmo-explorer
+    build:
+      context: .
+      dockerfile: Dockerfile.graph_explorer
+    ports:
+      - "8183:80"
+    depends_on:
+      - gremlin-server
+networks:
+  gremlin-network:
+    driver: bridge

@@ -38,6 +38,13 @@ To start the server again without rebuilding the image, run:
 docker-compose up
 ```
 
+#### - (Optional) Start the Gremlin Server in Detached Mode
+To run the Gremlin Server in the background (detached mode), use:
+```sh
+docker-compose up -d
+
+```
+
 ### 2. Start the Gremlin Console
 
 Open a new terminal and run:

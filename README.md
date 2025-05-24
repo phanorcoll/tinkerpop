@@ -13,7 +13,7 @@ This project provides a Docker-based environment for running an Apache TinkerPop
 - **conf/tinkergraph-empty.properties**
   Configuration file for TinkerGraph, specifying ID management and enabling example services.
 
-- **mt-scripts/seed.groovy**
+- **scripts/seed.groovy**
   Groovy script to seed the graph with sample identity and address data. Can be loaded via the Gremlin Console.
 
 ## Getting Started
@@ -43,10 +43,10 @@ docker-compose up
 Open a new terminal and run:
 
 ```sh
-docker run -it --rm --network host -v ./mt-scripts:/opt/gremlin-console/scripts tinkerpop/gremlin-console:latest
+docker run -it --rm --network host -v ./scripts:/opt/gremlin-console/scripts tinkerpop/gremlin-console:latest
 ```
 
-This command starts the Gremlin Console with your local `mt-scripts` directory mounted for easy script loading. It will map the `mt-scripts` folder to the `scripts` folder in the gremlin-console container, this way, any new script created will be available in the container.
+This command starts the Gremlin Console with your local `scripts` directory mounted for easy script loading. It will map the `scripts` folder to the `scripts` folder in the gremlin-console container, this way, any new script created will be available in the container.
 
 ### 3. Connect the Gremlin Console to the Remote Server
 
@@ -95,5 +95,5 @@ This will populate the graph with sample data.
 
 - The Gremlin Server runs on port `8182` by default.
 - The sample data includes identities and addresses, with relationships between them.
-- You can modify `mt-scripts/seed.groovy` to customize the initial data.
+- You can modify `scripts/seed.groovy` to customize the initial data.
 - You can create more  `.groovy` scripts to load in the gremlin console, just follow step #4 to load the newly created scripts.
